@@ -9,9 +9,6 @@ extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction : Vector2 = Vector2.ZERO
 
-func _ready():
-	animation_tree.active = true
-
 func _physics_process(_delta):
 
 	if not is_on_floor():
@@ -36,3 +33,7 @@ func update_facing_direction():
 		sprite.flip_h = false
 	elif direction.x < 0:
 		sprite.flip_h = true
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().change_scene_to_file("res://Global/main_menu.tscn")

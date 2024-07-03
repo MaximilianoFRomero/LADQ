@@ -10,7 +10,6 @@ signal on_hit(node: Node, damage_taken : int)
 	set(value):
 		SignalBus.emit_signal("on_health_changed", get_parent(), value - health)
 		health = value
-		
 
 
 func hit(damage : int):

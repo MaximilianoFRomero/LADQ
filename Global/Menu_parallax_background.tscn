@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfmfommkmh6fw"]
+
+[ext_resource type="Script" path="res://Global/ParallaxLayerClouds.gd" id="1_k6hm8"]
+[ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="2_c31bl"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+script = ExtResource("1_k6hm8")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(1061, 341)
+scale = Vector2(4.45729, 2.81618)
+texture = ExtResource("2_c31bl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(3099, 342)
+scale = Vector2(4.45729, 2.83088)
+texture = ExtResource("2_c31bl")

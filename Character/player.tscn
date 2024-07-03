@@ -179,6 +179,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_ki5v3"]
 resource_name = "idle"
 length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -432,8 +433,8 @@ position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_ry2ya")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ib4q6")
-hframes = 8
+texture = ExtResource("1_uohqy")
+hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -478,22 +479,25 @@ wait_time = 0.3
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(28, -33)
 zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
 
 [node name="Perf" type="Label" parent="Camera2D"]
 offset_left = -50.0
-offset_top = -75.0
-offset_right = -10.0
-offset_bottom = -52.0
+offset_top = -90.0
+offset_right = 69.0
+offset_bottom = -67.0
+scale = Vector2(0.7, 0.7)
 text = "FPS:"
 script = ExtResource("10_q0rq1")
 
 [node name="StateDebugLabel" type="Label" parent="Camera2D" node_paths=PackedStringArray("state_machine")]
 offset_left = -51.0
-offset_top = -51.0
-offset_right = 48.0
-offset_bottom = -25.0
+offset_top = -76.0
+offset_right = 73.0
+offset_bottom = -53.0
+scale = Vector2(0.7, 0.7)
 text = "State: "
 script = ExtResource("11_xtov4")
 state_machine = NodePath("../../CharacterStateMachine")
