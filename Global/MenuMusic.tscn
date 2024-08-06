@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ci4h5r275xlmr"]
-
-[ext_resource type="AudioStream" uid="uid://exav8beoyd0q" path="res://Sound/Music/Progeny.mp3" id="1_rt2rm"]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
-stream = ExtResource("1_rt2rm")
-autoplay = true
-mix_target = 1
