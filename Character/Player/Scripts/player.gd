@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var speed : float = 200.0
 
@@ -8,6 +9,8 @@ extends CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction : Vector2 = Vector2.ZERO
+
+signal facing_direction_changed(facing_right : bool)
 
 func _physics_process(_delta):
 
@@ -34,6 +37,8 @@ func update_facing_direction():
 		sprite.flip_h = false
 	elif direction.x < 0:
 		sprite.flip_h = true
+	
+	emit_signal("facing_direction_changed", !sprite.flip_h)
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
