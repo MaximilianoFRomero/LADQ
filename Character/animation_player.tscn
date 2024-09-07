@@ -1,9 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbhb885l7noh1"]
+[gd_scene load_steps=17 format=3 uid="uid://bbhb885l7noh1"]
 
 [ext_resource type="Texture2D" uid="uid://cwl6m881dulgh" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Attack-01/Attack-01-Sheet.png" id="1_4o4eu"]
 [ext_resource type="Texture2D" uid="uid://cilbq1jmxocd0" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Jumlp-All/Jump-All-Sheet.png" id="2_cwu85"]
+[ext_resource type="AudioStream" uid="uid://bn6ugfc0r0j1c" path="res://Sound/Player/Sword_Slash.mp3" id="2_p4ai1"]
 [ext_resource type="Texture2D" uid="uid://cf5vr3rdkcdr0" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="3_wxdo1"]
+[ext_resource type="AudioStream" uid="uid://cehannenpdbvc" path="res://Sound/Player/Jump.mp3" id="4_f4286"]
 [ext_resource type="Texture2D" uid="uid://bvqkoppprkbil" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Run/Run-Sheet.png" id="4_ypixx"]
+[ext_resource type="AudioStream" uid="uid://dnyqj8rja62qj" path="res://Sound/Player/run.mp3" id="5_sy308"]
 
 [sub_resource type="Animation" id="Animation_76cko"]
 length = 0.001
@@ -71,6 +74,21 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/Attack")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_p4ai1")
+}],
+"times": PackedFloat32Array(-0.5)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_ynmyu"]
 resource_name = "attack2"
@@ -123,6 +141,21 @@ tracks/3/keys = {
 "update": 1,
 "values": [false, true, false]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/Attack")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_p4ai1")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_hhlbu"]
 resource_name = "double_jump"
@@ -284,6 +317,21 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/Jump_Start")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_f4286")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_x4w03"]
 resource_name = "run"
@@ -325,6 +373,21 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/Run")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_sy308")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0dkb2"]
 _data = {
@@ -342,3 +405,11 @@ _data = {
 libraries = {
 "": SubResource("AnimationLibrary_0dkb2")
 }
+
+[node name="Run" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Jump_Start" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_p4ai1")
+pitch_scale = 2.0

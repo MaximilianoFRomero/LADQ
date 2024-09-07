@@ -9,9 +9,6 @@ func _ready():
 
 func _on_h_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(master_bus, value)
-	hslider.value = value
-	saved_volume = hslider.value
-	print(hslider.value)
 	if value == -30:
 		AudioServer.set_bus_mute(master_bus, true)
 	else:

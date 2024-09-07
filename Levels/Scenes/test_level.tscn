@@ -2444,7 +2444,6 @@ layer_0/tile_data = PackedInt32Array(393247, 1114112, 13, 458783, 1114112, 14, 3
 [node name="Forest" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_sc72y")
 volume_db = -17.334
-autoplay = true
 
 [node name="AudioStreamPlayer" parent="." instance=ExtResource("10_bh7fh")]
 

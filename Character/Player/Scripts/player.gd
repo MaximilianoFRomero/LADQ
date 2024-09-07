@@ -14,6 +14,13 @@ signal facing_direction_changed(facing_right : bool)
 
 func _physics_process(_delta):
 
+	
+	movement(_delta)
+	move_and_slide()
+	update_animation_parameters()
+	update_facing_direction()
+	
+func movement(_delta):
 	if not is_on_floor():
 		velocity.y += gravity * _delta
 
@@ -23,11 +30,6 @@ func _physics_process(_delta):
 		velocity.x = direction.x * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
-
-	move_and_slide()
-	update_animation_parameters()
-	update_facing_direction()
-	run_sound()
 	
 func update_animation_parameters():
 	animation_tree.set("parameters/move/blend_position", direction.x)
@@ -43,11 +45,3 @@ func update_facing_direction():
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().change_scene_to_file("res://Global/MainMenu/Scenes/main_menu.tscn")
-
-func run_sound():
-	if Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right"):
-		$AudioStreamPlayer.stream.loop = true
-		$AudioStreamPlayer.playing = true
-	elif Input.is_action_just_released("left") or Input.is_action_just_released("right"):
-		$AudioStreamPlayer.playing = false
-	

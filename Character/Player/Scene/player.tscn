@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://xxaoff7gwbrm"]
+[gd_scene load_steps=33 format=3 uid="uid://xxaoff7gwbrm"]
 
 [ext_resource type="Script" path="res://Character/Player/Scripts/player.gd" id="1_flj5s"]
 [ext_resource type="Texture2D" uid="uid://cf5vr3rdkcdr0" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="1_uohqy"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://Character/States/GroundState.gd" id="8_yi76h"]
 [ext_resource type="Script" path="res://Character/States/AirState.gd" id="9_sg48e"]
 [ext_resource type="Script" path="res://Character/States/LandingState.gd" id="10_e7jjg"]
-[ext_resource type="AudioStream" uid="uid://dnyqj8rja62qj" path="res://Sound/Player/run.mp3" id="10_om51x"]
 [ext_resource type="Script" path="res://Character/States/Attack.gd" id="10_qvtt1"]
 [ext_resource type="Script" path="res://Character/Player/Scripts/FacingCollisionShape2D.gd" id="10_vther"]
 [ext_resource type="Script" path="res://Character/States/Sword.gd" id="13_0vuvc"]
@@ -165,9 +164,6 @@ shape = SubResource("RectangleShape2D_qn4e1")
 script = ExtResource("10_vther")
 facing_left_position = Vector2(-27, 0)
 facing_right_position = Vector2(27, 0)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_om51x")
 
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Landing" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attack" method="_on_animation_tree_animation_finished"]
