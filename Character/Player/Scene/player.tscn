@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://xxaoff7gwbrm"]
+[gd_scene load_steps=34 format=3 uid="uid://xxaoff7gwbrm"]
 
 [ext_resource type="Script" path="res://Character/Player/Scripts/player.gd" id="1_flj5s"]
 [ext_resource type="Texture2D" uid="uid://cf5vr3rdkcdr0" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="1_uohqy"]
 [ext_resource type="PackedScene" uid="uid://bbhb885l7noh1" path="res://Character/animation_player.tscn" id="3_08qmn"]
+[ext_resource type="Script" path="res://Character/States/Damageable.gd" id="4_hsw2r"]
 [ext_resource type="Script" path="res://Character/States/CharacterStateMachine.gd" id="7_utua3"]
 [ext_resource type="Script" path="res://Character/States/GroundState.gd" id="8_yi76h"]
 [ext_resource type="Script" path="res://Character/States/AirState.gd" id="9_sg48e"]
@@ -108,6 +109,11 @@ hframes = 4
 tree_root = SubResource("AnimationNodeStateMachine_haosr")
 anim_player = NodePath("../AnimationPlayer")
 parameters/move/blend_position = 0.0247229
+
+[node name="Damageable" type="Node" parent="."]
+script = ExtResource("4_hsw2r")
+dead_animation_name = "idle"
+health = 3.0
 
 [node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "animation_tree", "current_state")]
 script = ExtResource("7_utua3")

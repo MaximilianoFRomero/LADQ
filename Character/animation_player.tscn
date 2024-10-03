@@ -406,10 +406,11 @@ libraries = {
 "": SubResource("AnimationLibrary_0dkb2")
 }
 
-[node name="Run" type="AudioStreamPlayer2D" parent="."]
+[node name="Run" type="AudioStreamPlayer" parent="."]
+autoplay = true
 
-[node name="Jump_Start" type="AudioStreamPlayer2D" parent="."]
+[node name="Jump_Start" type="AudioStreamPlayer" parent="."]
 
-[node name="Attack" type="AudioStreamPlayer2D" parent="."]
+[node name="Attack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_p4ai1")
 pitch_scale = 2.0
