@@ -5,7 +5,7 @@ func _on_salir_pressed():
 
 
 func _on_nueva_partida_pressed():
-	get_tree().change_scene_to_file("res://Levels/Scenes/test_level.tscn")
+	get_tree().change_scene_to_file("res://Levels/Scenes/world_01.tscn")
 
 
 func _on_opciones_pressed():

@@ -9,8 +9,13 @@ class_name Player
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction : Vector2 = Vector2.ZERO
+var health_component: Health
+var lifes = 3
 
 signal facing_direction_changed(facing_right : bool)
+
+func _ready():
+	health_component = $Health
 
 func _physics_process(_delta):
 
@@ -45,3 +50,12 @@ func update_facing_direction():
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().change_scene_to_file("res://Global/MainMenu/Scenes/main_menu.tscn")
+
+
+func loseLife():
+	lifes = lifes - 1
+	if lifes > 0:
+		print("Cant vidas: ", str(lifes))
+	else:
+		get_tree().reload_current_scene()
+

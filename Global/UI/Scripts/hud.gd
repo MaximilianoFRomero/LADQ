@@ -4,11 +4,13 @@ extends Control
 
 func _ready():
 	Global.PointsChanged.connect(updatePoints)
-	playerDamageable.on_health_changed.connect(updateLifes)
+	#playerDamageable.on_health_changed.connect(updateLifes)
 	updateLifes()
+	updatePoints()
 
 func updatePoints():
-	$Points.text = str(Global.points)
+	$CanvasLayer/Points.text = str(Global.points)
 
 func updateLifes():
-	$lifes.text = str(playerDamageable.health)
+	#$lifes.text = str()
+	pass

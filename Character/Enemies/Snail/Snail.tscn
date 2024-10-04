@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://ceeek22jqext"]
+[gd_scene load_steps=19 format=3 uid="uid://ceeek22jqext"]
 
 [ext_resource type="Texture2D" uid="uid://cxij3cdd4xf4t" path="res://Art/Legacy-Fantasy - High Forest 2.3/Mob/Snail/Dead-Sheet.png" id="1_huode"]
 [ext_resource type="Texture2D" uid="uid://dpii7hugyoc76" path="res://Art/Legacy-Fantasy - High Forest 2.3/Mob/Snail/walk-Sheet.png" id="1_rbunb"]
-[ext_resource type="Script" path="res://Character/Enemies/Snail/Enemy.gd" id="1_yqxhe"]
+[ext_resource type="Script" path="res://Character/States/Enemy.gd" id="1_yqxhe"]
 [ext_resource type="Script" path="res://Character/States/Damageable.gd" id="2_6ppot"]
 [ext_resource type="Script" path="res://Character/States/CharacterStateMachine.gd" id="4_pgppt"]
 [ext_resource type="Script" path="res://Character/States/State.gd" id="5_px6ov"]
@@ -132,6 +132,9 @@ states/walk/node = SubResource("AnimationNodeAnimation_r6hdl")
 states/walk/position = Vector2(371, 100)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_pvx7v"), "walk", "dead", SubResource("AnimationNodeStateMachineTransition_ejklw")]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1t83"]
+size = Vector2(24.5, 20.5)
+
 [node name="Snail" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
 collision_layer = 4
 script = ExtResource("1_yqxhe")
@@ -157,7 +160,7 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("2_6ppot")
-health = 30.0
+health = 10.0
 
 [node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "animation_tree", "current_state")]
 script = ExtResource("4_pgppt")
@@ -183,5 +186,20 @@ can_move = false
 wait_time = 0.25
 one_shot = true
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.25, 5.75)
+shape = SubResource("RectangleShape2D_m1t83")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-1, 7)
+scale = Vector2(0.4, 0.4)
+target_position = Vector2(-92.5, 0)
+collision_mask = 4
+
 [connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

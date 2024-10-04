@@ -2397,9 +2397,11 @@ layer_0/tile_data = PackedInt32Array(458766, 0, 1, 458767, 65536, 1, 458768, 131
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_t7emj")]
 position = Vector2(1895, 67)
+collision_layer = 6
 
 [node name="Snail" parent="." instance=ExtResource("3_8qufa")]
 position = Vector2(2239, 79)
+collision_layer = 6
 
 [node name="HealthChangedManager" parent="." instance=ExtResource("4_xrc7n")]
 
@@ -2469,9 +2471,9 @@ focus_mode = 0
 script = ExtResource("11_2wja5")
 transitioner = NodePath("../Transitions")
 
-[node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("playerDamageable") instance=ExtResource("12_n1hbo")]
-playerDamageable = NodePath("../../Player/Damageable")
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("12_n1hbo")]
 
 [connection signal="toggled" from="CanvasLayer/CheckButton" to="CanvasLayer/CheckButton" method="_on_toggled"]
 
 [editable path="Player"]
+[editable path="Snail"]

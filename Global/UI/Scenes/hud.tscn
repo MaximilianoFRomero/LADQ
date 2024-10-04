@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://chwqoy44fd1he"]
+[gd_scene load_steps=7 format=3 uid="uid://chwqoy44fd1he"]
 
 [ext_resource type="Script" path="res://Global/UI/Scripts/hud.gd" id="1_3jb4f"]
+[ext_resource type="Texture2D" uid="uid://dupntj1yy3f12" path="res://Art/HUD/11-1.png" id="2_qyy21"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kygcn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mrhbc"]
+font_size = 13
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6buja"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0agl7"]
+font_size = 11
+font_color = Color(0, 0, 0, 1)
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -11,18 +25,52 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3jb4f")
 
-[node name="Points" type="Label" parent="."]
-layout_mode = 0
-offset_left = 604.0
-offset_top = 109.0
-offset_right = 653.0
-offset_bottom = 132.0
-text = "points"
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="lifes" type="Label" parent="."]
-layout_mode = 0
-offset_left = 609.0
-offset_top = 144.0
-offset_right = 649.0
-offset_bottom = 167.0
-text = "lifes"
+[node name="PointsCont" type="ColorRect" parent="CanvasLayer"]
+offset_left = 1118.0
+offset_top = 14.0
+offset_right = 1259.0
+offset_bottom = 97.0
+color = Color(0, 0, 0, 0.556863)
+
+[node name="Points" type="Label" parent="CanvasLayer"]
+offset_left = 1181.0
+offset_top = 68.0
+offset_right = 1230.0
+offset_bottom = 91.0
+text = "0"
+label_settings = SubResource("LabelSettings_kygcn")
+
+[node name="11-1" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(85, 37)
+scale = Vector2(2.04688, 1.75)
+texture = ExtResource("2_qyy21")
+
+[node name="Label" type="Label" parent="CanvasLayer/11-1"]
+offset_left = -17.0992
+offset_top = -12.0
+offset_right = 22.9008
+offset_bottom = 11.0
+text = "Vidas"
+label_settings = SubResource("LabelSettings_mrhbc")
+
+[node name="lifes" type="Label" parent="CanvasLayer"]
+offset_left = 79.0
+offset_top = 22.0
+offset_right = 119.0
+offset_bottom = 45.0
+label_settings = SubResource("LabelSettings_6buja")
+
+[node name="11-2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1188, 44)
+scale = Vector2(2.01563, 1.85714)
+texture = ExtResource("2_qyy21")
+
+[node name="Label" type="Label" parent="CanvasLayer/11-2"]
+offset_left = -17.8605
+offset_top = -10.7692
+offset_right = 37.1395
+offset_bottom = 12.2308
+text = "Puntos"
+label_settings = SubResource("LabelSettings_0agl7")
