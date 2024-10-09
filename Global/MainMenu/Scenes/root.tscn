@@ -1,14 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbl6mwj680yaq"]
+[gd_scene load_steps=3 format=3 uid="uid://cbl6mwj680yaq"]
 
 [ext_resource type="Script" path="res://Global/MainMenu/Scripts/rootDef.gd" id="1_xb1d8"]
 [ext_resource type="Script" path="res://Global/MainMenu/Scripts/PauseMenu.gd" id="2_h3nws"]
-[ext_resource type="PackedScene" uid="uid://vi36vg2hhfid" path="res://Levels/Scenes/world_02.tscn" id="4_p1xgn"]
 
-[node name="LVL02" type="Node"]
+[node name="root" type="Node"]
 process_mode = 3
 script = ExtResource("1_xb1d8")
-
-[node name="World02" parent="." instance=ExtResource("4_p1xgn")]
 
 [node name="Pause" type="CanvasLayer" parent="."]
 

@@ -24,7 +24,6 @@ func _on_player_total_health_changed(totalLifes):
 	print(totalLifes)
 	if totalLifes == 0:
 		heart1.visible = false
-		$CanvasLayer/Transitioner.set_next_animation(true)
 		
 	if totalLifes == 1:
 		heart2.visible = false
