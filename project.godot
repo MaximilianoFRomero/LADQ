@@ -20,11 +20,14 @@ config/icon="res://icon.svg"
 Global="*res://Global/UI/Scripts/global.gd"
 SignalBus="*res://Global/Misc/Scripts/SignalBus.gd"
 Settings="*res://Global/MainMenu/Scripts/Settings.gd"
+LoadManager="*res://Global/MainMenu/Scripts/LoadManager.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=3
+window/size/initial_position_type=0
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

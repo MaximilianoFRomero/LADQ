@@ -2,15 +2,10 @@
 
 [ext_resource type="Script" path="res://Global/UI/Scripts/hud.gd" id="1_3jb4f"]
 [ext_resource type="Texture2D" uid="uid://dupntj1yy3f12" path="res://Art/HUD/11-1.png" id="2_qyy21"]
+[ext_resource type="PackedScene" uid="uid://1w2j3vf6316e" path="res://Character/Player/Scene/heart.tscn" id="3_6na8f"]
+[ext_resource type="PackedScene" path="res://Global/UI/Scenes/transitioner.tscn" id="4_qrafe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kygcn"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_mrhbc"]
-font_size = 13
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_6buja"]
-font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0agl7"]
 font_size = 11
@@ -47,20 +42,17 @@ position = Vector2(85, 37)
 scale = Vector2(2.04688, 1.75)
 texture = ExtResource("2_qyy21")
 
-[node name="Label" type="Label" parent="CanvasLayer/11-1"]
-offset_left = -17.0992
-offset_top = -12.0
-offset_right = 22.9008
-offset_bottom = 11.0
-text = "Vidas"
-label_settings = SubResource("LabelSettings_mrhbc")
+[node name="heart" parent="CanvasLayer/11-1" instance=ExtResource("3_6na8f")]
+position = Vector2(-11.7252, -2.85714)
+scale = Vector2(0.488548, 0.571429)
 
-[node name="lifes" type="Label" parent="CanvasLayer"]
-offset_left = 79.0
-offset_top = 22.0
-offset_right = 119.0
-offset_bottom = 45.0
-label_settings = SubResource("LabelSettings_6buja")
+[node name="heart2" parent="CanvasLayer/11-1" instance=ExtResource("3_6na8f")]
+position = Vector2(0.488548, -2.85714)
+scale = Vector2(0.488548, 0.571429)
+
+[node name="heart3" parent="CanvasLayer/11-1" instance=ExtResource("3_6na8f")]
+position = Vector2(13.1908, -2.85714)
+scale = Vector2(0.488548, 0.571429)
 
 [node name="11-2" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(1188, 44)
@@ -74,3 +66,13 @@ offset_right = 37.1395
 offset_bottom = 12.2308
 text = "Puntos"
 label_settings = SubResource("LabelSettings_0agl7")
+
+[node name="Transitioner" parent="CanvasLayer" instance=ExtResource("4_qrafe")]
+visible = false
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 1028.0
+offset_top = 682.0
+offset_right = 1259.0
+offset_bottom = 705.0
+text = "VIDEOJUEGO EN DESARROLLO"

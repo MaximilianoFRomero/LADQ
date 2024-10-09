@@ -135,10 +135,11 @@ transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1t83"]
 size = Vector2(24.5, 20.5)
 
-[node name="Snail" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
+[node name="Snail" type="CharacterBody2D" node_paths=PackedStringArray("hit_state", "dead_state")]
 collision_layer = 4
 script = ExtResource("1_yqxhe")
 hit_state = NodePath("CharacterStateMachine/Hit")
+dead_state = NodePath("CharacterStateMachine/Dead")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 6)

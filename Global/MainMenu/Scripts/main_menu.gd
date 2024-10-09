@@ -6,8 +6,6 @@ func _ready():
 	Audio.autoplay = true
 	Audio.stream.loop = true
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 

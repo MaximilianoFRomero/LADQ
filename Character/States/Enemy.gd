@@ -6,6 +6,7 @@ class_name Enemy
 @export var starting_move_direction : Vector2 = Vector2.LEFT
 @export var movement_speed := float(30.0)
 @export var hit_state : State
+@export var dead_state : State
 var player : Player
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -39,6 +40,6 @@ func turn():
 
 
 func _on_area_2d_body_entered(body):
-	if body.get_name() == "Player":
+	if body.get_name() == "Player" && state_machine.current_state != dead_state:
 		print("Daño hecho")
 		body.loseLife()

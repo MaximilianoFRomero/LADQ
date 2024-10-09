@@ -2460,7 +2460,6 @@ shape = SubResource("RectangleShape2D_cb6fw")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Transitions" parent="CanvasLayer" instance=ExtResource("10_tqvil")]
-visible = false
 
 [node name="CheckButton" type="CheckButton" parent="CanvasLayer" node_paths=PackedStringArray("transitioner")]
 offset_left = 11.0

@@ -1,15 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://rufdueka5f8r"]
+[gd_scene load_steps=18 format=3 uid="uid://d2y3w3jyg7w8p"]
 
-[ext_resource type="Script" path="res://Character/States/Enemy.gd" id="1_34cb8"]
-[ext_resource type="Texture2D" uid="uid://b2s6p8vwydffd" path="res://Art/Rocky Roads/Enemies/bird.png" id="2_4vht2"]
-[ext_resource type="Texture2D" uid="uid://cxij3cdd4xf4t" path="res://Art/Legacy-Fantasy - High Forest 2.3/Mob/Snail/Dead-Sheet.png" id="3_qyxvj"]
-[ext_resource type="Script" path="res://Character/States/Damageable.gd" id="4_s4q4q"]
-[ext_resource type="Script" path="res://Character/States/CharacterStateMachine.gd" id="5_2x7an"]
-[ext_resource type="Script" path="res://Character/States/State.gd" id="6_0midt"]
-[ext_resource type="Script" path="res://Character/States/HitState.gd" id="7_5qud1"]
+[ext_resource type="Script" path="res://Character/States/Enemy.gd" id="1_cnal8"]
+[ext_resource type="Texture2D" uid="uid://b2s6p8vwydffd" path="res://Art/Rocky Roads/Enemies/bird.png" id="2_kjsjr"]
+[ext_resource type="Script" path="res://Character/States/Damageable.gd" id="3_aus1b"]
+[ext_resource type="Script" path="res://Character/States/CharacterStateMachine.gd" id="4_35033"]
+[ext_resource type="Script" path="res://Character/States/State.gd" id="5_3hysy"]
+[ext_resource type="Script" path="res://Character/States/HitState.gd" id="6_fblv5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eha0q"]
-size = Vector2(22, 15)
+size = Vector2(28, 20)
 
 [sub_resource type="Animation" id="Animation_smyyk"]
 length = 0.001
@@ -28,7 +27,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_yudsu"]
 resource_name = "dead"
-length = 0.8
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -39,7 +38,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_qyxvj")]
+"values": [ExtResource("2_kjsjr")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -51,7 +50,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [4]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -60,15 +59,15 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_7hp38"]
 resource_name = "walk"
-length = 0.4
+length = 0.31
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -80,7 +79,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_4vht2")]
+"values": [ExtResource("2_kjsjr")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -115,7 +114,7 @@ _data = {
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6gmb1"]
-animation = &"walk"
+animation = &"dead"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r6hdl"]
 animation = &"walk"
@@ -133,20 +132,21 @@ states/walk/position = Vector2(371, 100)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_pvx7v"), "walk", "dead", SubResource("AnimationNodeStateMachineTransition_ejklw")]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1t83"]
-size = Vector2(15.25, 12.25)
+size = Vector2(24.5, 20.5)
 
 [node name="Bird" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
-collision_layer = 4
-script = ExtResource("1_34cb8")
+collision_layer = 12
+collision_mask = 12
+script = ExtResource("1_cnal8")
 hit_state = NodePath("CharacterStateMachine/Hit")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(-1, 6)
 shape = SubResource("RectangleShape2D_eha0q")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_4vht2")
+texture = ExtResource("2_kjsjr")
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -159,24 +159,24 @@ tree_root = SubResource("AnimationNodeStateMachine_gqxe6")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="Damageable" type="Node" parent="."]
-script = ExtResource("4_s4q4q")
+script = ExtResource("3_aus1b")
 health = 10.0
 
 [node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "animation_tree", "current_state")]
-script = ExtResource("5_2x7an")
+script = ExtResource("4_35033")
 character = NodePath("..")
 animation_tree = NodePath("../AnimationTree")
 current_state = NodePath("Walk")
 
 [node name="Walk" type="Node" parent="CharacterStateMachine"]
-script = ExtResource("6_0midt")
+script = ExtResource("5_3hysy")
 
 [node name="Dead" type="Node" parent="CharacterStateMachine"]
-script = ExtResource("6_0midt")
+script = ExtResource("5_3hysy")
 can_move = false
 
 [node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "dead_state", "return_state")]
-script = ExtResource("7_5qud1")
+script = ExtResource("6_fblv5")
 damageable = NodePath("../../Damageable")
 dead_state = NodePath("../Dead")
 return_state = NodePath("../Walk")
@@ -187,17 +187,17 @@ wait_time = 0.25
 one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 10
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 2)
+position = Vector2(0.25, 5.75)
 shape = SubResource("RectangleShape2D_m1t83")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-5.96046e-08, 1)
+position = Vector2(1, 4.76837e-07)
 scale = Vector2(0.4, 0.4)
-target_position = Vector2(-57.5, -1.19209e-06)
+target_position = Vector2(-92.5, 0)
 collision_mask = 8
 
 [connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]

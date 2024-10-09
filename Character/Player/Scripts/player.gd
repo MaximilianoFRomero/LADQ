@@ -12,10 +12,12 @@ var direction : Vector2 = Vector2.ZERO
 var health_component: Health
 var lifes = 3
 
+
 signal facing_direction_changed(facing_right : bool)
+signal  total_health_changed(totalLifes : int)
 
 func _ready():
-	health_component = $Health
+	emit_signal("total_health_changed", lifes)
 
 func _physics_process(_delta):
 
@@ -47,15 +49,13 @@ func update_facing_direction():
 	
 	emit_signal("facing_direction_changed", !sprite.flip_h)
 
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().change_scene_to_file("res://Global/MainMenu/Scenes/main_menu.tscn")
+#func _input(_event: InputEvent) -> void:
+	#if Input.is_action_just_pressed("ui_cancel"):
+		#get_tree().change_scene_to_file("res://Global/MainMenu/Scenes/main_menu.tscn")
 
 
 func loseLife():
 	lifes = lifes - 1
-	if lifes > 0:
-		print("Cant vidas: ", str(lifes))
-	else:
-		get_tree().reload_current_scene()
+	print("Cant vidas: ", str(lifes))
+	emit_signal("total_health_changed", lifes)
 

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://1w2j3vf6316e"]
+
+[ext_resource type="Texture2D" uid="uid://xsuwdnvao0bx" path="res://Art/Rocky Roads/UI/hearts.png" id="1_cnsxf"]
+
+[node name="heart" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_cnsxf")
+hframes = 4

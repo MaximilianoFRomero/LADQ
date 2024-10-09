@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5lg5sv5t4r3y"]
+
+[ext_resource type="Script" path="res://Global/MainMenu/Scripts/rootDef.gd" id="1_82fm0"]
+[ext_resource type="PackedScene" uid="uid://dw4y706b2cyvq" path="res://Levels/Scenes/world_01.tscn" id="2_0go5r"]
+[ext_resource type="Script" path="res://Global/MainMenu/Scripts/PauseMenu.gd" id="2_th7xh"]
+
+[node name="LVL01" type="Node"]
+process_mode = 3
+script = ExtResource("1_82fm0")
+
+[node name="World01" parent="." instance=ExtResource("2_0go5r")]
+
+[node name="Pause" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" type="Control" parent="Pause" node_paths=PackedStringArray("game_manager")]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_th7xh")
+game_manager = NodePath("../..")
+
+[node name="Panel" type="Panel" parent="Pause/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -192.0
+offset_right = 156.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause/PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 33.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Pause/PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "= PAUSA ="
+
+[node name="ResumeBtn" type="Button" parent="Pause/PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Continuar"
+
+[node name="MainMenuBtn" type="Button" parent="Pause/PauseMenu/Panel/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Menu Principal"
+
+[node name="ExitBtn" type="Button" parent="Pause/PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Salir"
+
+[connection signal="pressed" from="Pause/PauseMenu/Panel/VBoxContainer/ResumeBtn" to="Pause/PauseMenu" method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="Pause/PauseMenu/Panel/VBoxContainer/ExitBtn" to="Pause/PauseMenu" method="_on_exit_btn_pressed"]

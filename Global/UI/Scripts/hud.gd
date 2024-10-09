@@ -1,10 +1,15 @@
 extends Control
 
-@export var playerDamageable : Damageable
+var lifes
+var heart1
+var heart2
+var heart3
 
 func _ready():
 	Global.PointsChanged.connect(updatePoints)
-	#playerDamageable.on_health_changed.connect(updateLifes)
+	heart1 = get_node("CanvasLayer/11-1/heart")
+	heart2 = get_node("CanvasLayer/11-1/heart2")
+	heart3 = get_node("CanvasLayer/11-1/heart3")
 	updateLifes()
 	updatePoints()
 
@@ -12,5 +17,16 @@ func updatePoints():
 	$CanvasLayer/Points.text = str(Global.points)
 
 func updateLifes():
-	#$lifes.text = str()
 	pass
+
+
+func _on_player_total_health_changed(totalLifes):
+	print(totalLifes)
+	if totalLifes == 0:
+		heart1.visible = false
+		$CanvasLayer/Transitioner.set_next_animation(true)
+		
+	if totalLifes == 1:
+		heart2.visible = false
+	if totalLifes == 2:
+		heart3.visible = false
