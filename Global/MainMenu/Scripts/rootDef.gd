@@ -12,7 +12,7 @@ var game_paused : bool = false :
 		emit_signal("toggle_game_paused", game_paused)
 
 func _input(event : InputEvent):
-	if(event.is_action_pressed("Quit")):
+	if(event.is_action_pressed("Quit") or event.is_action_pressed("ui_cancel")):
 		var current_value : bool = get_tree().paused
 		game_paused = !game_paused
 

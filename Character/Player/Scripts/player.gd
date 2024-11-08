@@ -58,4 +58,6 @@ func loseLife():
 	lifes = lifes - 1
 	print("Cant vidas: ", str(lifes))
 	emit_signal("total_health_changed", lifes)
+	if(lifes==0):
+		get_tree().reload_current_scene()
 

@@ -19017,6 +19017,7 @@ position = Vector2(11904, 680)
 [node name="Bat" parent="Entities/Bats" instance=ExtResource("21_c3i7u")]
 position = Vector2(8408.55, 524.683)
 scale = Vector2(1.5, 1.5)
+collision_layer = 12
 
 [node name="Bat2" parent="Entities/Bats" instance=ExtResource("21_c3i7u")]
 position = Vector2(9091, 556)
@@ -19027,7 +19028,7 @@ position = Vector2(9457.7, 565.989)
 scale = Vector2(1.5, 1.5)
 
 [node name="Player" parent="Entities" instance=ExtResource("2_h04io")]
-position = Vector2(296, 616)
+position = Vector2(285.802, 614.861)
 
 [node name="Collitions" type="Node2D" parent="."]
 
