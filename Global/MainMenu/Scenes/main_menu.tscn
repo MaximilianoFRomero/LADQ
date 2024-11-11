@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cg2sr65ffa747"]
+[gd_scene load_steps=5 format=3 uid="uid://cg2sr65ffa747"]
 
 [ext_resource type="Script" path="res://Global/MainMenu/Scripts/main_menu.gd" id="1_bqbl4"]
 [ext_resource type="PackedScene" uid="uid://dfmfommkmh6fw" path="res://Global/MainMenu/Scenes/Menu_parallax_background.tscn" id="2_tnohc"]
-[ext_resource type="Script" path="res://Global/MainMenu/Scripts/Menu.gd" id="3_r07kn"]
+[ext_resource type="Script" path="res://Global/MainMenu/Scripts/VBoxMenu.gd" id="3_r07kn"]
 [ext_resource type="PackedScene" uid="uid://ci4h5r275xlmr" path="res://Global/MainMenu/Scenes/MenuMusic.tscn" id="4_4hs3r"]
-[ext_resource type="PackedScene" uid="uid://but3q3hsqryqk" path="res://Global/MainMenu/Scenes/SettingsScreen.tscn" id="5_mevyg"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -33,11 +32,6 @@ script = ExtResource("3_r07kn")
 layout_mode = 2
 text = "Nueva Partida"
 
-[node name="Opciones" type="Button" parent="VBoxContainer"]
-visible = false
-layout_mode = 2
-text = "Opciones"
-
 [node name="Salir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Salir"
@@ -52,9 +46,6 @@ offset_right = 1259.0
 offset_bottom = 705.0
 text = "VIDEOJUEGO EN DESARROLLO"
 
-[node name="Settings" parent="." instance=ExtResource("5_mevyg")]
-visible = false
-
 [node name="Volver" type="Button" parent="."]
 visible = false
 layout_mode = 0
@@ -65,8 +56,5 @@ offset_bottom = 694.0
 text = "Menu Principal"
 
 [connection signal="pressed" from="VBoxContainer/Nueva Partida" to="VBoxContainer" method="_on_nueva_partida_pressed"]
-[connection signal="pressed" from="VBoxContainer/Opciones" to="." method="_on_opciones_pressed"]
-[connection signal="pressed" from="VBoxContainer/Opciones" to="VBoxContainer" method="_on_opciones_pressed"]
-[connection signal="pressed" from="VBoxContainer/Opciones" to="Settings" method="_on_opciones_pressed"]
 [connection signal="pressed" from="VBoxContainer/Salir" to="VBoxContainer" method="_on_salir_pressed"]
 [connection signal="pressed" from="Volver" to="." method="_on_volver_pressed"]

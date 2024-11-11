@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Character/Player/Scripts/player.gd" id="1_flj5s"]
 [ext_resource type="Texture2D" uid="uid://cf5vr3rdkcdr0" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="1_uohqy"]
-[ext_resource type="PackedScene" uid="uid://bbhb885l7noh1" path="res://Character/animation_player.tscn" id="3_08qmn"]
+[ext_resource type="PackedScene" uid="uid://bbhb885l7noh1" path="res://Character/Player/Scene/animation_player.tscn" id="3_i5sh3"]
 [ext_resource type="Script" path="res://Character/States/CharacterStateMachine.gd" id="7_utua3"]
 [ext_resource type="Script" path="res://Character/States/GroundState.gd" id="8_yi76h"]
 [ext_resource type="Script" path="res://Character/States/AirState.gd" id="9_sg48e"]
@@ -103,7 +103,7 @@ shape = SubResource("CapsuleShape2D_ry2ya")
 texture = ExtResource("1_uohqy")
 hframes = 4
 
-[node name="AnimationPlayer" parent="." instance=ExtResource("3_08qmn")]
+[node name="AnimationPlayer" parent="." instance=ExtResource("3_i5sh3")]
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_haosr")

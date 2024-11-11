@@ -1,14 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://but3q3hsqryqk"]
+[gd_scene load_steps=4 format=3 uid="uid://bqcxk21a0saet"]
 
-[ext_resource type="Script" path="res://Global/MainMenu/Scripts/Settings.gd" id="1_jok2d"]
 [ext_resource type="PackedScene" uid="uid://dfmfommkmh6fw" path="res://Global/MainMenu/Scenes/Menu_parallax_background.tscn" id="2_oakfm"]
+
+[sub_resource type="GDScript" id="GDScript_52ve5"]
+script/source = "extends Node
+
+var master_bus = AudioServer.get_bus_index(\"Master\")
+var saved_volume
+
+func _ready():
+	pass
+
+func _on_h_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(master_bus, value)
+	if value == -30:
+		AudioServer.set_bus_mute(master_bus, true)
+	else:
+		AudioServer.set_bus_mute(master_bus, false)
+
+
+func _on_opciones_pressed():
+	self.visible = true
+
+
+func _on_toggle_full_screen_btn_toggled(toggled_on):
+	if toggled_on == true:
+		DisplayServer.window_set_mode(3,0)
+	else:
+		DisplayServer.window_set_mode(0,0)
+"
 
 [sub_resource type="Theme" id="Theme_yubd3"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_jok2d")
+script = SubResource("GDScript_52ve5")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_oakfm")]
 

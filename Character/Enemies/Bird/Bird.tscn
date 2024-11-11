@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://d2y3w3jyg7w8p"]
 
-[ext_resource type="Script" path="res://Character/States/Enemy.gd" id="1_cnal8"]
+[ext_resource type="Script" path="res://Character/Enemies/Script/Enemy.gd" id="1_cnal8"]
 [ext_resource type="Texture2D" uid="uid://b2s6p8vwydffd" path="res://Art/Rocky Roads/Enemies/bird.png" id="2_kjsjr"]
 [ext_resource type="Script" path="res://Character/States/Damageable.gd" id="3_aus1b"]
 [ext_resource type="Script" path="res://Character/States/CharacterStateMachine.gd" id="4_35033"]

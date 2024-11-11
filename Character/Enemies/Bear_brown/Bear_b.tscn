@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://biv7gmjvda5cl"]
 
-[ext_resource type="Script" path="res://Character/States/Enemy.gd" id="1_inr37"]
+[ext_resource type="Script" path="res://Character/Enemies/Script/Enemy.gd" id="1_inr37"]
 [ext_resource type="Texture2D" uid="uid://btl7rxeajx381" path="res://Art/Rocky Roads/Enemies/bear_brown.png" id="2_15clb"]
 [ext_resource type="Script" path="res://Character/States/Damageable.gd" id="4_folq5"]
 [ext_resource type="Script" path="res://Character/States/CharacterStateMachine.gd" id="5_yyhor"]

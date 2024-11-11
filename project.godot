@@ -20,7 +20,6 @@ config/icon="res://icon.svg"
 Global="*res://Global/UI/Scripts/global.gd"
 SignalBus="*res://Global/Misc/Scripts/SignalBus.gd"
 Settings="*res://Global/MainMenu/Scripts/Settings.gd"
-LoadManager="*res://Global/MainMenu/Scripts/LoadManager.gd"
 
 [display]
 

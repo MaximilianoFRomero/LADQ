@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cxij3cdd4xf4t" path="res://Art/Legacy-Fantasy - High Forest 2.3/Mob/Snail/Dead-Sheet.png" id="1_huode"]
 [ext_resource type="Texture2D" uid="uid://dpii7hugyoc76" path="res://Art/Legacy-Fantasy - High Forest 2.3/Mob/Snail/walk-Sheet.png" id="1_rbunb"]
-[ext_resource type="Script" path="res://Character/States/Enemy.gd" id="1_yqxhe"]
+[ext_resource type="Script" path="res://Character/Enemies/Script/Enemy.gd" id="1_yqxhe"]
 [ext_resource type="Script" path="res://Character/States/Damageable.gd" id="2_6ppot"]
 [ext_resource type="Script" path="res://Character/States/CharacterStateMachine.gd" id="4_pgppt"]
 [ext_resource type="Script" path="res://Character/States/State.gd" id="5_px6ov"]
